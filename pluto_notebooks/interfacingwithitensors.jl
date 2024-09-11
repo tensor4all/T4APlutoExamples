@@ -22,7 +22,7 @@ begin
     xmax = 3.0
     qgrid = QG.DiscretizedGrid{1}(R, xmin, xmax; includeendpoint = false)
     ci, ranks, errors = quanticscrossinterpolate(
-		Float64, f, qgrid; maxbonddim = 15)
+        Float64, f, qgrid; maxbonddim = 15)
 end
 
 # ╔═╡ dd3b9f0b-4300-4856-adcd-120c71dff9cd

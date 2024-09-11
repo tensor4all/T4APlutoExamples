@@ -158,8 +158,8 @@ Checking the error on the same slices as before, we see that the approximation i
 # ╔═╡ d68328cd-ce39-4c55-b89a-b6d45f9a90e3
 # Function that evaluates log10 of the interplation error at (x, y)
 function errflog10(x, y)
-	i = origcoord_to_grididx(grid, (x, y))
-	log10(nextfloat(0.0) + abs(f(grididx_to_origcoord(grid, i)...) - qtci(i)))
+    i = origcoord_to_grididx(grid, (x, y))
+    log10(nextfloat(0.0) + abs(f(grididx_to_origcoord(grid, i)...) - qtci(i)))
 end
 
 # ╔═╡ 2e41e949-5cb2-42f2-afea-09d1737cf708

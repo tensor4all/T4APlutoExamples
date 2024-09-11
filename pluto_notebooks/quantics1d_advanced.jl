@@ -57,19 +57,19 @@ However, since the implementation treats `B` as a untyped global variables, Juli
 
 # ╔═╡ f3653d4d-283f-4758-8b57-90e34a6ed53c
 begin
-	# Define callable struct
-	Base.@kwdef struct Ritter2024 <: Function
-	    B::Float64 = 2^(-30)
-	end
-	
-	# Make Ritter2024 be "callable" object.
-	function (obj::Ritter2024)(x)
-	    B = obj.B
-	    return cos(x / B) * cos(x / (4 * sqrt(5) * B)) * exp(-x^2) + 2 * exp(-x)
-	end
-	
-	f = Ritter2024()
-	nothing
+    # Define callable struct
+    Base.@kwdef struct Ritter2024 <: Function
+        B::Float64 = 2^(-30)
+    end
+
+    # Make Ritter2024 be "callable" object.
+    function (obj::Ritter2024)(x)
+        B = obj.B
+        return cos(x / B) * cos(x / (4 * sqrt(5) * B)) * exp(-x^2) + 2 * exp(-x)
+    end
+
+    f = Ritter2024()
+    nothing
 end
 
 # ╔═╡ 9fe50058-6f68-4d63-93e2-0ee209cf3f0f
@@ -120,13 +120,13 @@ In the following code, we generate initial pivots by finding local maxima of $|f
 
 # ╔═╡ cb628558-99dc-4fb3-b636-e939fa1895f6
 begin
-	nrandominitpivot = 5
-	
-	# random initial pivot
-	initialpivots = [TCI.optfirstpivot(qf, localdims, [rand(1:d) for d in localdims])
-	                 for _ in 1:nrandominitpivot]
-	
-	qf.(initialpivots) # Function values at initial pivots
+    nrandominitpivot = 5
+
+    # random initial pivot
+    initialpivots = [TCI.optfirstpivot(qf, localdims, [rand(1:d) for d in localdims])
+                     for _ in 1:nrandominitpivot]
+
+    qf.(initialpivots) # Function values at initial pivots
 end
 
 # ╔═╡ a7fe45e4-81ea-4e0d-95c9-e8f170a85df2

@@ -10,7 +10,7 @@ begin
     gr() # Use GR backend for plotting
 
     import QuanticsGrids as QG
-	import TensorCrossInterpolation as TCI
+    import TensorCrossInterpolation as TCI
 
     using QuanticsTCI: QuanticsTCI, quanticscrossinterpolate, integral
 end
@@ -27,18 +27,18 @@ md"""
 
 # ╔═╡ a6c64c0d-6e01-4044-8f09-283d35f51518
 begin
-	# defines mutable struct `SemiLogy` and sets shorthands `semilogy` and `semilogy!`
-	@userplot SemiLogy
-	@recipe function f(t::SemiLogy)
-		x = t.args[begin]
-		y = t.args[end]
-		ε = nextfloat(0.0)
-	
-		yscale := :log10
-		# Warning: Invalid negative or zero value 0.0 found at series index 16 for log10 based yscale
-		# prevent log10(0) from being -Inf
-		(x, ε .+ y)
-	end
+    # defines mutable struct `SemiLogy` and sets shorthands `semilogy` and `semilogy!`
+    @userplot SemiLogy
+    @recipe function f(t::SemiLogy)
+        x = t.args[begin]
+        y = t.args[end]
+        ε = nextfloat(0.0)
+
+        yscale := :log10
+        # Warning: Invalid negative or zero value 0.0 found at series index 16 for log10 based yscale
+        # prevent log10(0) from being -Inf
+        (x, ε .+ y)
+    end
 end
 
 # ╔═╡ e241cb1b-d6f4-4017-bd9c-91269a7d44cb
@@ -132,11 +132,11 @@ Here, we've created the object `ci` of type `QuanticsTensorCI2{Float64}`. This c
 
 # ╔═╡ b48a3427-cd90-4d80-a97c-bde4b7da6716
 let
-	for i in [1, 2, 3, 2^R] # Linear indices
-	    # restore original coordinate `x` from linear index `i`
-	    x = QG.grididx_to_origcoord(qgrid, i)
-	    println("x: $(x), i: $(i), tci: $(ci(i)), ref: $(f(x))")
-	end
+    for i in [1, 2, 3, 2^R] # Linear indices
+        # restore original coordinate `x` from linear index `i`
+        x = QG.grididx_to_origcoord(qgrid, i)
+        println("x: $(x), i: $(i), tci: $(ci(i)), ref: $(f(x))")
+    end
 end
 
 # ╔═╡ d3f8d6ce-92e0-4a2b-b904-18969197936c
@@ -171,7 +171,7 @@ let
     maxindex = QG.origcoord_to_grididx(qgrid, 2.0^(-23))
     testindices = Int.(round.(LinRange(1, maxindex, 1000)))
 
-	xs = [QG.grididx_to_origcoord(qgrid, i) for i in testindices]
+    xs = [QG.grididx_to_origcoord(qgrid, i) for i in testindices]
     ys = f.(xs)
     yci = ci.(testindices)
     plt = plot(title = "x vs interpolation error: $(nameof(f))",
@@ -300,10 +300,10 @@ One can construct a QTT representation of this function on the domain $[-10, 10)
 # ╔═╡ 7407ef57-02ee-4a28-8557-d258486f2918
 # Function of interest
 function oscillation_fn(x)
-	return (
-		sinc(x) + 3 * exp(-0.3 * (x - 4)^2) * sinc(x - 4) - cos(4 * x)^2 -
-		2 * sinc(x + 10) * exp(-0.6 * (x + 9)) + 4 * cos(2 * x) * exp(-abs(x + 5)) +
-		6 * 1 / (x - 11) + sqrt(abs(x)) * atan(x / 15))
+    return (
+        sinc(x) + 3 * exp(-0.3 * (x - 4)^2) * sinc(x - 4) - cos(4 * x)^2 -
+        2 * sinc(x + 10) * exp(-0.6 * (x + 9)) + 4 * cos(2 * x) * exp(-abs(x + 5)) +
+        6 * 1 / (x - 11) + sqrt(abs(x)) * atan(x / 15))
 end
 
 # ╔═╡ 68cac44c-41a6-498d-9957-dd3da91679c8

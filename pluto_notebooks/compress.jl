@@ -111,7 +111,8 @@ Below, we compute the error for the whole tensor, which may be too expensive for
 begin
     # Check error
     qttdataset = [qtt([i, j, k])
-                  for i in axes(grid_qtt, 1), j in axes(grid_qtt, 1), k in axes(grid_qtt, 1)]
+                  for i in axes(grid_qtt, 1), j in axes(grid_qtt, 1),
+    k in axes(grid_qtt, 1)]
     qtterrors = abs.(qttdataset .- dataset_qtt)
     println(
         "Quantics TCI compression of the dataset with tolerance $tolerance has " *
