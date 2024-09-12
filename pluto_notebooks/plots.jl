@@ -16,9 +16,104 @@ end
 md"""
 # Plots.jl"""
 
+# ╔═╡ b2f7d7b5-4abc-4f0e-b26a-79fe68c38c4a
+md"""
+Plots.jl is a famous standard Julia package for visualization. It has multiple backends.
+"""
+
+# ╔═╡ fe019b21-c774-49ff-981c-0487f0b07d42
+md"""
+We can plot a given function by passing to the `plot` function as an argument:
+"""
+
+# ╔═╡ e44c2429-fc7c-4609-b27c-4b527a7b8440
+plot(sin)
+
+# ╔═╡ 83905cd7-4548-482b-9514-3b9ef2d99e67
+md"""
+Of course, we can pass data of x-coordinates `x` and data of y-coordinates `y` to the `plot` function. The following example plots the sin function $y=\sin(x)$ for $x \in [-\pi, \pi]$.
+"""
+
+# ╔═╡ 5744c00e-ff55-4cff-b2ed-7079c341175e
+let
+	x = -π:0.1:π
+	y = sin.(x)
+	# line plot
+	plot(x, y, label="sin")
+end
+
+# ╔═╡ b1c45986-eb23-42aa-ba27-8269686ad626
+md"""
+We can draw multiple functions on a same plot pane using `plot!` function.
+"""
+
+# ╔═╡ aeab03ea-5947-4088-b60e-d1b32e98d164
+let
+	x = -π:0.1:π
+	y1 = sin.(x)
+	y2 = cos.(x)
+	plt = plot()
+	# line plot
+	plot!(plt, x, y1, label="sin")
+	# scatter plot
+	plot!(plt, x, y2, label="cos", seriestype=:scatter)
+end
+
+# ╔═╡ 9e90b55e-863a-4d6f-91d1-84e15ad1edd7
+md"""
+Instead of specifying `seriestype=:scatter`, we can use `scatter` or `scatter!` function.
+"""
+
+# ╔═╡ 5e630874-2ce5-4a8a-9cc0-c2474a9a6fa3
+let
+	x = 1:10
+	y = rand(10)
+	plt = plot()
+	plot!(x, y)
+	scatter!(x, y, label="scatter", marker=:x)
+end
+
+# ╔═╡ 25a968c0-4209-44e5-8e9a-ba580e0fbf4d
+md"""
+## Heatmap
+
+We can use `heatmap` function to visualize function on a two-dimensional domain:
+"""
+
+# ╔═╡ f1871cd6-8d8c-4e38-920b-c3f145513b22
+let
+    x = 1:20
+    y = 1:3
+
+    f(x, y) = 2x + y
+    heatmap(x, y, f)
+end
+
+# ╔═╡ c8b63bfc-3ef3-41b5-9f9f-7b59a5c0cce2
+md"""
+Of course, we can pass z-coordinates of data `z` to heatmap to the 3rd argument
+"""
+
+# ╔═╡ 86a17ea2-ce2c-44a5-ad69-b30b280dfb41
+let
+    x = 1:20
+    y = 1:3
+
+    f(x, y) = 2x + y
+    @show size(f.(x', y))
+	z = f.(x', y)
+    heatmap(x, y, z)
+end
+
+# ╔═╡ a5c86153-8430-4336-a82f-c671b2c63eb5
+md"""
+## Defining a custom seriestype
+"""
+
 # ╔═╡ 0ece0753-f329-43e6-9a34-99eeb7345cf4
 begin
-    # defines mutable struct `SemiLogy` and sets shorthands `semilogy` and `semilogy!`
+    # defines mutable struct `SemiLogy` and sets shorthands 
+	# `semilogy` and `semilogy!`
     @userplot SemiLogy
     @recipe function f(t::SemiLogy)
         x = t.args[begin]
@@ -26,53 +121,13 @@ begin
         ε = nextfloat(0.0)
 
         yscale := :log10
-        # Warning: Invalid negative or zero value 0.0 found at series index 16 for log10 based yscale
-        # prevent log10(0) from being -Inf
+        # Adding ε avoids getting log10(0) from being -Inf
         (x, ε .+ y)
     end
 end
 
 # ╔═╡ fa8f001c-e55b-457e-ae4e-80cf7aa1ffd7
 semilogy((-10:1:-7), 10.0 .^ (-10:1:-7))
-
-# ╔═╡ 130ab53f-3f9a-4212-af1e-8c58bb1eb078
-begin
-    function myplotheatmap!(plt, f::Function, xlim::Tuple, ylim::Tuple;
-            xlim_box = nothing, ylim_box = nothing)
-        x = LinRange(xlim..., 400)
-        y = LinRange(ylim..., 400)
-        s = heatmap!(plt, y, x, f.(x, y'))
-
-        if !isnothing(xlim_box) && !isnothing(ylim_box)
-            plot!(
-                plt,
-                [ylim_box[1], ylim_box[1], ylim_box[2], ylim_box[2], ylim_box[1]],
-                [xlim_box[1], xlim_box[2], xlim_box[2], xlim_box[1], xlim_box[1]],
-                color = "lightgreen", lw = 2, label = ""
-            )
-        end
-        xlabel!(L"$x$")
-        ylabel!(L"$y$")
-        plt
-    end
-
-    function myplotheatmap(
-            func, xlim::Tuple, ylim::Tuple; xlim_box = nothing, ylim_box = nothing)
-        plt = plot(xlim = ylim, ylim = xlim, aspect_ratio = :equal,
-            xlabel = L"$x$", ylabel = L"$y$")
-        myplotheatmap!(plt, func, xlim, ylim; xlim_box, ylim_box)
-    end
-end
-
-# ╔═╡ f1871cd6-8d8c-4e38-920b-c3f145513b22
-begin
-    x = 1:3
-    y = 1:20
-
-    f(x, y) = 2x + y
-    @show size(f.(x', y))
-    heatmap(x, y, f.(x', y))
-end
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -1174,10 +1229,22 @@ version = "1.4.1+1"
 
 # ╔═╡ Cell order:
 # ╟─679f9791-df49-47f6-b5e0-562737f265b5
+# ╟─b2f7d7b5-4abc-4f0e-b26a-79fe68c38c4a
 # ╠═a76d8151-fb1d-4dcb-aaf7-eb7f3d3c1f9e
+# ╟─fe019b21-c774-49ff-981c-0487f0b07d42
+# ╠═e44c2429-fc7c-4609-b27c-4b527a7b8440
+# ╟─83905cd7-4548-482b-9514-3b9ef2d99e67
+# ╠═5744c00e-ff55-4cff-b2ed-7079c341175e
+# ╟─b1c45986-eb23-42aa-ba27-8269686ad626
+# ╠═aeab03ea-5947-4088-b60e-d1b32e98d164
+# ╟─9e90b55e-863a-4d6f-91d1-84e15ad1edd7
+# ╠═5e630874-2ce5-4a8a-9cc0-c2474a9a6fa3
+# ╟─25a968c0-4209-44e5-8e9a-ba580e0fbf4d
+# ╠═f1871cd6-8d8c-4e38-920b-c3f145513b22
+# ╟─c8b63bfc-3ef3-41b5-9f9f-7b59a5c0cce2
+# ╠═86a17ea2-ce2c-44a5-ad69-b30b280dfb41
+# ╟─a5c86153-8430-4336-a82f-c671b2c63eb5
 # ╠═0ece0753-f329-43e6-9a34-99eeb7345cf4
 # ╠═fa8f001c-e55b-457e-ae4e-80cf7aa1ffd7
-# ╠═130ab53f-3f9a-4212-af1e-8c58bb1eb078
-# ╠═f1871cd6-8d8c-4e38-920b-c3f145513b22
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
