@@ -14,16 +14,14 @@ end
 
 # ╔═╡ 679f9791-df49-47f6-b5e0-562737f265b5
 md"""
-# Plots.jl"""
-
-# ╔═╡ b2f7d7b5-4abc-4f0e-b26a-79fe68c38c4a
-md"""
-Plots.jl is a famous standard Julia package for visualization. It has multiple backends.
+# Introduction to Plots.jl
+This guide provides an introduction to [Plots.jl](https://docs.juliaplots.org/stable/), a powerful and flexible plotting package for Julia.
+Plots.jl is a widely used Julia package for data visualization.
 """
 
 # ╔═╡ fe019b21-c774-49ff-981c-0487f0b07d42
 md"""
-We can plot a given function by passing to the `plot` function as an argument:
+To plot a given function, we can pass it as an argument to the `plot` function.
 """
 
 # ╔═╡ e44c2429-fc7c-4609-b27c-4b527a7b8440
@@ -31,8 +29,7 @@ plot(sin)
 
 # ╔═╡ 83905cd7-4548-482b-9514-3b9ef2d99e67
 md"""
-Of course, we can pass data of x-coordinates `x` and data of y-coordinates `y` to the `plot` function. The following example plots the sin function $y=\sin(x)$ for $x \in [-\pi, \pi]$.
-"""
+Additionally, we can provide x-coordinates (`x`) and y-coordinates (`y`) as arguments to the `plot` function to create custom plots."""
 
 # ╔═╡ 5744c00e-ff55-4cff-b2ed-7079c341175e
 let
@@ -45,6 +42,7 @@ end
 # ╔═╡ b1c45986-eb23-42aa-ba27-8269686ad626
 md"""
 We can draw multiple functions on a same plot pane using `plot!` function.
+The following example demonstrates plotting the sine function $y = \sin(x)$ for $x \in [-\pi, \pi]$.
 """
 
 # ╔═╡ aeab03ea-5947-4088-b60e-d1b32e98d164
@@ -61,7 +59,7 @@ end
 
 # ╔═╡ 9e90b55e-863a-4d6f-91d1-84e15ad1edd7
 md"""
-Instead of specifying `seriestype=:scatter`, we can use `scatter` or `scatter!` function.
+Instead of specifying `seriestype=:scatter`, we can use the `scatter` or `scatter!` functions directly.
 """
 
 # ╔═╡ 5e630874-2ce5-4a8a-9cc0-c2474a9a6fa3
@@ -77,7 +75,7 @@ end
 md"""
 ## Heatmap
 
-We can use `heatmap` function to visualize function on a two-dimensional domain:
+We can use the `heatmap` function to visualize a function on a two-dimensional domain.
 """
 
 # ╔═╡ f1871cd6-8d8c-4e38-920b-c3f145513b22
@@ -91,7 +89,7 @@ end
 
 # ╔═╡ c8b63bfc-3ef3-41b5-9f9f-7b59a5c0cce2
 md"""
-Of course, we can pass z-coordinates of data `z` to heatmap to the 3rd argument
+Of course, we can also pass the z-coordinates of the data (`z`) as the third argument to the `heatmap` function.
 """
 
 # ╔═╡ 86a17ea2-ce2c-44a5-ad69-b30b280dfb41
@@ -108,11 +106,14 @@ end
 # ╔═╡ a5c86153-8430-4336-a82f-c671b2c63eb5
 md"""
 ## Defining a custom seriestype
+
+We can define a custom seriestype by creating a new struct and defining a [recipe](https://docs.juliaplots.org/stable/recipes/#recipes) for it.
+Here we define a custom seriestype `SemiLogy` that plots the y-axis on a logarithmic scale.
 """
 
 # ╔═╡ 0ece0753-f329-43e6-9a34-99eeb7345cf4
 begin
-    # defines mutable struct `SemiLogy` and sets shorthands 
+    # defines mutable struct `SemiLogy` and sets shorthands
 	# `semilogy` and `semilogy!`
     @userplot SemiLogy
     @recipe function f(t::SemiLogy)
@@ -1229,7 +1230,6 @@ version = "1.4.1+1"
 
 # ╔═╡ Cell order:
 # ╟─679f9791-df49-47f6-b5e0-562737f265b5
-# ╟─b2f7d7b5-4abc-4f0e-b26a-79fe68c38c4a
 # ╠═a76d8151-fb1d-4dcb-aaf7-eb7f3d3c1f9e
 # ╟─fe019b21-c774-49ff-981c-0487f0b07d42
 # ╠═e44c2429-fc7c-4609-b27c-4b527a7b8440
