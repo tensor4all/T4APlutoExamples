@@ -1,10 +1,17 @@
 # T4APlutoExamples
 
-This repository contains tutorials for tensor4all group written in Julia with Pluto notebook.
+[![Export Pluto notebooks](https://github.com/tensor4all/T4APlutoExamples/actions/workflows/ExportPluto.yaml/badge.svg)](https://github.com/tensor4all/T4APlutoExamples/actions/workflows/ExportPluto.yaml)
 
-## Setup
+Website: https://tensor4all.org/T4APlutoExamples/pluto_notebooks/
 
-- Install Julia
+
+## Description
+
+[This repository](https://github.com/Tensor4All/T4APlutoExamples) contains tutorials for [Tensor4All group](https://tensor4all.org/) written in Julia with Pluto notebook. Pre-computed notebooks can be found at [this page](https://tensor4all.org/T4APlutoExamples/pluto_notebooks/).
+
+## How to open Pluto notebooks locally
+
+To open and run Pluto notebooks, you will need to install Julia. We recommend using [juliaup](https://github.com/JuliaLang/juliaup) to install Julia, following the instructions provided on the [official Julia website](https://julialang.org/downloads/).
 
 ```sh
 $ git clone https://github.com/tensor4all/T4APlutoExamples.git
@@ -50,4 +57,4 @@ This will launch a Pluto notebook server immediately.
 ## How to learn more about Pluto.jl
 
 See the official Pluto.jl tutorial [🔎 Basic Commands in Pluto](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%94%8E-Basic-Commands-in-Pluto) to learn more.
-
+g
