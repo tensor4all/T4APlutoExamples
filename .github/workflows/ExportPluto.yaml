@@ -3,7 +3,7 @@ on:
     push:
         branches:
             - main
-            - master
+    pull_request:
     workflow_dispatch:
 
 # When two jobs run in parallel, cancel the older ones, to make sure that the website is generated from the most recent commit.
@@ -60,9 +60,9 @@ jobs:
                     # more parameters can go here
                   )'
 
-
             - name: Deploy to gh-pages
               uses: JamesIves/github-pages-deploy-action@releases/v4
+              if: github.event_name == 'workflow_dispatch' || github.head_ref == 'main'
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   branch: gh-pages
