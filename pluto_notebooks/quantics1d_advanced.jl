@@ -14,7 +14,15 @@ end
 
 # ╔═╡ d4733947-56dd-43c4-8938-266b01769e1c
 md"""
-Click [here](https://tensor4all.org/T4AJuliaTutorials/_sources/ipynbs/quantics1d_advanced.ipynb) to download the notebook locally.
+To run this notebook quantics1d_advanced.jl locally, copy and paste the following into your Julia REPL:
+
+```julia-repl
+julia> using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
+julia> BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
+julia> notebook = "quantics1d_advanced.jl"
+julia> url = joinpath(BASE_URL, notebook)
+julia> using Pluto; Pluto.run(notebook=download(url))
+```
 """
 
 # ╔═╡ 7f6d4f2d-18cb-4b15-98c2-285840155b76

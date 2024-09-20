@@ -12,6 +12,19 @@ begin
     using LaTeXStrings
 end
 
+# ╔═╡ 8cabb3ac-bd6f-496c-84b2-bb536ba0ff54
+md"""
+To run this notebook plots.jl locally, copy and paste the following into your Julia REPL:
+
+```julia-repl
+julia> using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
+julia> BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
+julia> notebook = "plots.jl"
+julia> url = joinpath(BASE_URL, notebook)
+julia> using Pluto; Pluto.run(notebook=download(url))
+```
+"""
+
 # ╔═╡ 679f9791-df49-47f6-b5e0-562737f265b5
 md"""
 # Introduction to Plots.jl
@@ -1229,6 +1242,7 @@ version = "1.4.1+1"
 """
 
 # ╔═╡ Cell order:
+# ╟─8cabb3ac-bd6f-496c-84b2-bb536ba0ff54
 # ╟─679f9791-df49-47f6-b5e0-562737f265b5
 # ╠═a76d8151-fb1d-4dcb-aaf7-eb7f3d3c1f9e
 # ╟─fe019b21-c774-49ff-981c-0487f0b07d42

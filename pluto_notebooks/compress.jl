@@ -13,6 +13,19 @@ begin
     import QuanticsGrids as QG
 end
 
+# ╔═╡ 1cf43d12-22d4-43db-99cb-61b0bd8384d1
+md"""
+To run this notebook compress.jl locally, copy and paste the following into your Julia REPL:
+
+```julia-repl
+julia> using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
+julia> BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
+julia> notebook = "compress.jl"
+julia> url = joinpath(BASE_URL, notebook)
+julia> using Pluto; Pluto.run(notebook=download(url))
+```
+"""
+
 # ╔═╡ e6946e55-1220-4c4a-8811-78a27dea6e39
 md"""
 # Compressing exisiting data"""
@@ -1426,6 +1439,7 @@ version = "1.4.1+1"
 """
 
 # ╔═╡ Cell order:
+# ╟─1cf43d12-22d4-43db-99cb-61b0bd8384d1
 # ╟─e6946e55-1220-4c4a-8811-78a27dea6e39
 # ╠═a4c27a3b-be79-4972-9f4b-792f460c188b
 # ╟─0b38c4db-40f6-4129-99f0-16c138e5cebc

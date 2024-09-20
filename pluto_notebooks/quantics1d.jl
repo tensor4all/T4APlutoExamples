@@ -17,7 +17,15 @@ end
 
 # ╔═╡ 5c09f2e8-5e91-413f-8f21-407d13ed5b8b
 md"""
-Click [here](https://tensor4all.org/T4AJuliaTutorials/_sources/ipynbs/quantics1d.ipynb) to download the notebook locally.
+To run this notebook locally, copy and paste the following into your Julia REPL:
+
+```julia-repl
+julia> using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
+julia> BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
+julia> notebook = "quantics1d.jl"
+julia> url = joinpath(BASE_URL, notebook)
+julia> using Pluto; Pluto.run(notebook=download(url))
+```
 """
 
 # ╔═╡ f85ccc76-0793-41c6-acf5-23e621953b4b

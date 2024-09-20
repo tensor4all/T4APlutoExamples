@@ -27,7 +27,15 @@ end
 
 # ╔═╡ dd3b9f0b-4300-4856-adcd-120c71dff9cd
 md"""
-Click [here](https://tensor4all.org/T4AJuliaTutorials/_sources/ipynbs/interfacingwithitensors.ipynb) to download the notebook locally.
+To run this notebook interfacingwithitensors.jl locally, copy and paste the following into your Julia REPL:
+
+```julia-repl
+julia> using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
+julia> BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
+julia> notebook = "interfacingwithitensors.jl"
+julia> url = joinpath(BASE_URL, notebook)
+julia> using Pluto; Pluto.run(notebook=download(url))
+```
 """
 
 # ╔═╡ 33bbccb2-2df2-4e80-a7d9-cdc9391d72c6

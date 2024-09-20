@@ -20,7 +20,13 @@ end
 
 # ╔═╡ 13ed9ed3-9979-4e5d-a73e-334a01631242
 md"""
-Click [here](https://tensor4all.org/T4AJuliaTutorials/_sources/ipynbs/quantics2d.ipynb) to download the notebook locally.
+```julia-repl
+julia> using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
+julia> BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
+julia> notebook = "quantics2d.jl"
+julia> url = joinpath(BASE_URL, notebook)
+julia> using Pluto; Pluto.run(notebook=download(url))
+```
 """
 
 # ╔═╡ 5412cb9c-a4c6-47be-be1d-dd8e269925da
