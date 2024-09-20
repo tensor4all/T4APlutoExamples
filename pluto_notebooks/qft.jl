@@ -22,6 +22,7 @@ begin
 	resource_qft1 = Resource("https://raw.githubusercontent.com/tensor4all/T4AJuliaTutorials/main/qft1.png", "alt"=>"qft1", "width"=>"30%")
 	
 	resource_qft2 = Resource("https://raw.githubusercontent.com/tensor4all/T4AJuliaTutorials/main/qft2.png", "alt"=>"qft contraction", "width"=>"60%")
+	nothing
 end
 
 # ╔═╡ 4bbd8548-49cc-4abf-af40-909d15cc6c75
@@ -2138,7 +2139,7 @@ version = "1.4.1+1"
 # ╟─2089fb37-7a8d-46c2-b95c-a0feab70d250
 # ╠═23d20fe2-152c-4368-808d-784ab72c507b
 # ╠═09aecf54-58c1-4e6e-abee-1e8574d9cf61
-# ╠═0cc27419-c679-42e5-b63b-68da665c9d57
+# ╟─0cc27419-c679-42e5-b63b-68da665c9d57
 # ╟─ab2c70f2-a83e-454a-a183-12772af3eac4
 # ╟─81ef384b-b219-4214-973c-7ed8d892834a
 # ╠═4bbd8548-49cc-4abf-af40-909d15cc6c75

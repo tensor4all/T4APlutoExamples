@@ -17,12 +17,12 @@ end
 md"""
 To run this notebook compress.jl locally, copy and paste the following into your Julia REPL:
 
-```julia-repl
-julia> using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
-julia> BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
-julia> notebook = "compress.jl"
-julia> url = joinpath(BASE_URL, notebook)
-julia> using Pluto; Pluto.run(notebook=download(url))
+```julia
+using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
+BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
+notebook = "compress.jl"
+url = joinpath(BASE_URL, notebook)
+using Pluto; Pluto.run(notebook=download(url))
 ```
 """
 

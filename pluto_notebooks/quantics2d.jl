@@ -20,12 +20,12 @@ end
 
 # ╔═╡ 13ed9ed3-9979-4e5d-a73e-334a01631242
 md"""
-```julia-repl
-julia> using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
-julia> BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
-julia> notebook = "quantics2d.jl"
-julia> url = joinpath(BASE_URL, notebook)
-julia> using Pluto; Pluto.run(notebook=download(url))
+```julia
+using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
+BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
+notebook = "quantics2d.jl"
+url = joinpath(BASE_URL, notebook)
+using Pluto; Pluto.run(notebook=download(url))
 ```
 """
 
