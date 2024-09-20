@@ -184,7 +184,7 @@ end
 
 # ╔═╡ 07854cf9-da58-4c02-a54f-31a24d1f32b3
 md"""
-Select file $(ui_notebook). 
+Select file $(ui_notebook).
 
 To run this notebook $(notebook) locally, copy and paste the following into your Julia REPL:
 """
@@ -192,12 +192,12 @@ To run this notebook $(notebook) locally, copy and paste the following into your
 # ╔═╡ cf22b220-b5d6-483f-a137-ff56d0216158
 begin
 	mdstr = """
-	```julia-repl
-	julia> using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
-	julia> BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
-	julia> notebook = "$(notebook)"
-	julia> url = joinpath(BASE_URL, notebook)
-	julia> using Pluto; Pluto.run(notebook=download(url))
+	```julia
+	using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
+	BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
+	notebook = "$(notebook)"
+	url = joinpath(BASE_URL, notebook)
+	using Pluto; Pluto.run(notebook=download(url))
 	```
 	"""
 	Markdown.parse(mdstr)
