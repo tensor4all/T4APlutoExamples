@@ -54,7 +54,12 @@ julia> using Pluto; Pluto.run(notebook="pluto_notebooks/quantics1d.jl")
 
 This will launch a Pluto notebook server immediately.
 
+You can also run Pluto notebooks on the web using the `download` function.
+
+```julia-repl
+julia> using Pluto; Pluto.run(notebook=download("https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/quantics1d.jl"))
+```
+
 ## How to learn more about Pluto.jl
 
 See the official Pluto.jl tutorial [🔎 Basic Commands in Pluto](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%94%8E-Basic-Commands-in-Pluto) to learn more.
-g
