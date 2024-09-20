@@ -1,2 +1,3 @@
 *.html
 pluto_notebooks/pluto_export.json
+.DS_Store
