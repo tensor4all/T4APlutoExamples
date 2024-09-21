@@ -16,9 +16,23 @@ end
 
 # ╔═╡ ca3996e3-7a32-41a9-9e3f-f5cb83f3fe5f
 begin
-	using PlutoUI
 	using Markdown
+	using PlutoUI
 end
+
+# ╔═╡ 89ca61fd-6bd0-483f-aad6-e3aa2e35046c
+md"""
+
+To run this notebook `welcome.jl` locally, copy and paste the following into your Julia REPL:
+
+```julia
+using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
+BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
+notebook = "welcome.jl"
+url = joinpath(BASE_URL, notebook)
+using Pluto; Pluto.run(notebook=download(url))
+```
+"""
 
 # ╔═╡ 5cf76073-4a83-4d0d-aac0-843dbbafc027
 md"""
@@ -112,6 +126,12 @@ julia> exit()
 
 See the official documentation at [The Julia REPL](https://docs.julialang.org/en/v1/stdlib/REPL/) to learn more."""
 
+# ╔═╡ 19b7809c-5a93-4963-b46a-360a332c476d
+begin
+	img_main_menu=Resource("https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/assets/open_welcome.png")
+	nothing
+end
+
 # ╔═╡ 7b83cb86-f08a-41b0-b506-6cbe5393d3a3
 md"""
 ## How to open Pluto notebooks locally
@@ -155,9 +175,9 @@ julia> using Pluto; Pluto.run()
 
 This will open http://localhost:1234/?secret=xxxxxx in your default browser and you will see the following main menu of Pluto notebook:
 
-$(LocalResource("../assets/open_welcome.png"))
+$(img_main_menu)
 
-To open notebooks under `pluto_notebooks` directory, type `pluto_notebooks/welcome.jl` to text area under `Open a notebook` section
+To open notebooks under `pluto_notebooks` directory, type `pluto_notebooks/welcome.jl` to text area under `Open a notebook` section. Then click `Open` button.
 """
 
 # ╔═╡ ec419a4f-061c-4d67-a1b6-c123eb763132
@@ -165,6 +185,13 @@ md"""
 ## Specifying Pluto notebook URL directly
 
 You can also open the notebook on the web directly.
+"""
+
+# ╔═╡ 2cbff48a-a3ef-462d-a726-4c5ca85bb4c0
+md"""
+## About PlutoUI.jl
+
+The drop down menu above is created using PlutoUI.jl. You'll notice that when the drop-down menu is updated from `welcome.jl' to `quantics1d.jl', the message "To run this notebook locally, run welcome.jl" should change to "To run this notebook locally, run quantics1d.jl". This interactive functionality is one of the key features of Pluto notebook.
 """
 
 # ╔═╡ 3766d4ae-2f5a-4515-82c2-b8984947efa4
@@ -178,7 +205,7 @@ begin
 		"interfacingwithitensors.jl",
 		"plots.jl",
 		"qft.jl",
-	])
+	], default="welcome.jl")
 	nothing
 end
 
@@ -202,6 +229,23 @@ begin
 	"""
 	Markdown.parse(mdstr)
 end
+
+# ╔═╡ 1286865c-875b-4b32-b27f-9796aab29b23
+md"""
+## About Pluto.jl
+
+Since Pluto has a built-in package manager, packages are automatically installed when you use:
+
+```julia
+using <YourPackage>
+# or 
+import <YourPackage>
+``` 
+
+Your package environment is stored in the notebook file. If you open the notebook with a text editor you will find `PLUTO_PROJECT_TOML_CONTENTS` which corresponds to Project.toml and `PLUTO_MANIFEST_TOML_CONTENTS` which corresponds to Manifest.toml. When someone else opens your notebook with Pluto, the exact same package environment will be used and packages will work on their computer.
+
+See [Pluto’s built-in package management](https://plutojl.org/en/docs/packages/) to learn more.
+"""
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -482,16 +526,20 @@ version = "17.4.0+2"
 """
 
 # ╔═╡ Cell order:
+# ╟─89ca61fd-6bd0-483f-aad6-e3aa2e35046c
 # ╠═ca3996e3-7a32-41a9-9e3f-f5cb83f3fe5f
 # ╟─5cf76073-4a83-4d0d-aac0-843dbbafc027
 # ╟─3f5633ea-85cd-48dd-a533-9d2d57d54bc2
 # ╟─f6c6d410-bc9a-427e-9085-c966acd1509c
 # ╟─8972eee5-606d-4d7d-bb41-5f6c768a0fe4
 # ╟─96a60509-1189-4925-a1d1-69e7a30f6b52
+# ╟─19b7809c-5a93-4963-b46a-360a332c476d
 # ╟─7b83cb86-f08a-41b0-b506-6cbe5393d3a3
 # ╟─ec419a4f-061c-4d67-a1b6-c123eb763132
-# ╟─3766d4ae-2f5a-4515-82c2-b8984947efa4
 # ╟─07854cf9-da58-4c02-a54f-31a24d1f32b3
 # ╟─cf22b220-b5d6-483f-a137-ff56d0216158
+# ╟─2cbff48a-a3ef-462d-a726-4c5ca85bb4c0
+# ╠═3766d4ae-2f5a-4515-82c2-b8984947efa4
+# ╟─1286865c-875b-4b32-b27f-9796aab29b23
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
