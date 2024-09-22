@@ -46,7 +46,7 @@ jobs:
 
             - name: Edit .gitignore to allow to track html files
               run: |
-                sed '/html/ s/^/# /' .gitignore
+                rm .gitignore
             - name: Instantiate
               run: |
                 julia --project -e 'using Pkg; Pkg.instantiate()'
