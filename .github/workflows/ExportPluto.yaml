@@ -12,9 +12,11 @@ concurrency:
     cancel-in-progress: true
 
 # This action needs permission to write the exported HTML file to the gh-pages branch.
+# needed to allow julia-actions/cache to delete old caches that it has created
 permissions:
-    contents: write
-    # (all other permission fields default to "none")
+  actions: write
+  contents: read
+  # (all other permission fields default to "none")
 
 jobs:
     build-and-deploy:
