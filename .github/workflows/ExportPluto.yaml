@@ -15,7 +15,7 @@ concurrency:
 # needed to allow julia-actions/cache to delete old caches that it has created
 permissions:
   actions: write
-  contents: read
+  contents: write
   # (all other permission fields default to "none")
 
 jobs:
