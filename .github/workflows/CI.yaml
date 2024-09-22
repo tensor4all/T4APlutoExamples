@@ -1,4 +1,4 @@
-name: Export Pluto notebooks
+name: CI
 on:
     push:
         branches:
@@ -8,15 +8,15 @@ on:
 
 # When two jobs run in parallel, cancel the older ones, to make sure that the website is generated from the most recent commit.
 concurrency:
-    group: pluto-export
+    group: ci
     cancel-in-progress: true
 
 # This action needs permission to write the exported HTML file to the gh-pages branch.
 # needed to allow julia-actions/cache to delete old caches that it has created
 permissions:
-  actions: write
-  contents: read
-  # (all other permission fields default to "none")
+    actions: write
+    contents: read
+    # (all other permission fields default to "none")
 
 jobs:
     build-and-deploy:
@@ -47,26 +47,6 @@ jobs:
             - name: Instantiate
               run: |
                 julia --project -e 'using Pkg; Pkg.instantiate()'
-            - name: Generate index page
+            - name: Run tests
               run: |
-                julia --project scripts/generate_index.jl
-            - name: Run & export Pluto notebooks
-              run: |
-                julia --project -e '
-                  import PlutoSliderServer
-
-                  PlutoSliderServer.github_action("./pluto_notebooks";
-                    Export_cache_dir="pluto_state_cache",
-                    Export_baked_notebookfile=false,
-                    Export_baked_state=false,
-                    # more parameters can go here
-                  )'
-
-            - name: Deploy to gh-pages
-              uses: JamesIves/github-pages-deploy-action@releases/v4
-              if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  branch: gh-pages
-                  folder: .
-                  single-commit: true
+                julia --project scripts/runtests.jl
