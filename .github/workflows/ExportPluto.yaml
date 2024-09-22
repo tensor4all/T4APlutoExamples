@@ -72,5 +72,5 @@ jobs:
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   branch: gh-pages
-                  folder: ./pluto_notebooks
+                  folder: ./
                   single-commit: true
