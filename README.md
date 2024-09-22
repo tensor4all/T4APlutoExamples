@@ -2,6 +2,8 @@
 
 [![Export Pluto notebooks](https://github.com/tensor4all/T4APlutoExamples/actions/workflows/ExportPluto.yaml/badge.svg)](https://github.com/tensor4all/T4APlutoExamples/actions/workflows/ExportPluto.yaml)
 
+[![CI](https://github.com/tensor4all/T4APlutoExamples/actions/workflows/CI.yaml/badge.svg)](https://github.com/tensor4all/T4APlutoExamples/actions/workflows/CI.yaml)
+
 Website: https://tensor4all.org/T4APlutoExamples/pluto_notebooks/
 
 
