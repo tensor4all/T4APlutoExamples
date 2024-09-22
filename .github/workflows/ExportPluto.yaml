@@ -61,6 +61,8 @@ jobs:
                     Export_baked_state=false,
                     # more parameters can go here
                   )'
+            - name: List files
+              run: ls pluto_notebooks
             - name: Allow to track html files
               run: |
                 sed '/html/ s/^/# /' .gitignore
