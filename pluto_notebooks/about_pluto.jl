@@ -34,6 +34,12 @@ using Pluto; Pluto.run(notebook=download(url))
 ```
 """
 
+# ╔═╡ 118e9f2a-f90a-414a-89a7-983bb199ee44
+md"""
+# About Pluto.jl
+"""
+
+
 # ╔═╡ 19b7809c-5a93-4963-b46a-360a332c476d
 begin
 	img_main_menu=Resource("https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/assets/open_welcome.png")
@@ -42,7 +48,7 @@ end
 
 # ╔═╡ 7b83cb86-f08a-41b0-b506-6cbe5393d3a3
 md"""
-## How to open ALL Pluto notebooks locally
+# How to open all the Pluto notebooks locally
 
 
 The following instructions are for EXPERT users familiar with `Julia` and `git.`
@@ -147,7 +153,7 @@ end
 
 # ╔═╡ 1286865c-875b-4b32-b27f-9796aab29b23
 md"""
-## About Pluto.jl
+## Built-in package manager
 
 Since Pluto has a built-in package manager, packages are automatically installed when you use:
 
@@ -442,15 +448,16 @@ version = "17.4.0+2"
 
 # ╔═╡ Cell order:
 # ╟─89ca61fd-6bd0-483f-aad6-e3aa2e35046c
+# ╟─118e9f2a-f90a-414a-89a7-983bb199ee44
 # ╠═ca3996e3-7a32-41a9-9e3f-f5cb83f3fe5f
 # ╟─19b7809c-5a93-4963-b46a-360a332c476d
 # ╟─7b83cb86-f08a-41b0-b506-6cbe5393d3a3
 # ╠═00c93734-a3e0-4c45-a60a-93fafba51dc5
-# ╟─ec419a4f-061c-4d67-a1b6-c123eb763132
+# ╠═ec419a4f-061c-4d67-a1b6-c123eb763132
 # ╟─07854cf9-da58-4c02-a54f-31a24d1f32b3
 # ╟─cf22b220-b5d6-483f-a137-ff56d0216158
 # ╟─2cbff48a-a3ef-462d-a726-4c5ca85bb4c0
 # ╠═3766d4ae-2f5a-4515-82c2-b8984947efa4
-# ╟─1286865c-875b-4b32-b27f-9796aab29b23
+# ╠═1286865c-875b-4b32-b27f-9796aab29b23
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
