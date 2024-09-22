@@ -45,7 +45,7 @@ jobs:
             - name: Instantiate
               run: |
                 julia --project -e 'using Pkg; Pkg.instantiate()'
-            - name:
+            - name: Generate index page
               run: |
                 julia --project scripts/generate_index.jl
             - name: Run & export Pluto notebooks
