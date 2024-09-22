@@ -4,6 +4,8 @@
 
 [![CI](https://github.com/tensor4all/T4APlutoExamples/actions/workflows/CI.yaml/badge.svg)](https://github.com/tensor4all/T4APlutoExamples/actions/workflows/CI.yaml)
 
+[![pages-build-deployment](https://github.com/tensor4all/T4APlutoExamples/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/tensor4all/T4APlutoExamples/actions/workflows/pages/pages-build-deployment)
+
 Website: https://tensor4all.org/T4APlutoExamples/pluto_notebooks/
 
 
