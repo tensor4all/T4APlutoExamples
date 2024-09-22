@@ -61,7 +61,9 @@ jobs:
                     Export_baked_state=false,
                     # more parameters can go here
                   )'
-
+            - name: Allow to track html files
+              run: |
+                sed '/html/ s/^/# /' .gitignore
             - name: Deploy to gh-pages
               uses: JamesIves/github-pages-deploy-action@releases/v4
               if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
