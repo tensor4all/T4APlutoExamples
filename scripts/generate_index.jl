@@ -36,7 +36,8 @@ function extract_title(filepath::AbstractString)
 end
 
 open(joinpath(PLUTO_NOTEBOOKS_DIR, "index.md"), "w") do io
-    write(io, "# Notebooks\n")
+    #write(io, "# Notebooks\n")
+    write(io, "Please follow the instruction in the top cell of each notebook to run it locally.\n")
 
     for f in PLUTO_FILE_NAMES
         title = extract_title(joinpath(PLUTO_NOTEBOOKS_DIR, f))
