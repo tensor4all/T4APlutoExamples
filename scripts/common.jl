@@ -7,6 +7,6 @@ const PLUTO_FILE_NAMES = [
     "interfacingwithitensors.jl",
     "quantics2d.jl",
     "qft.jl",
-    "pluto.jl",
+    "about_pluto.jl",
     "plots.jl",
 ]

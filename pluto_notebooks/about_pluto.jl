@@ -23,19 +23,16 @@ end
 # ╔═╡ 89ca61fd-6bd0-483f-aad6-e3aa2e35046c
 md"""
 
-To run this notebook `welcome.jl` locally, copy and paste the following into your Julia REPL:
+To run this notebook `about_pluto.jl` locally, copy and paste the following into your Julia REPL:
 
 ```julia
 using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
 BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
-notebook = "pluto.jl"
+notebook = "about_pluto.jl"
 url = joinpath(BASE_URL, notebook)
 using Pluto; Pluto.run(notebook=download(url))
 ```
 """
-
-# ╔═╡ c453cd50-2e2d-4402-a017-37a32540dcb2
-
 
 # ╔═╡ 19b7809c-5a93-4963-b46a-360a332c476d
 begin
@@ -120,8 +117,9 @@ begin
 		"quantics1d_advanced.jl",
 		"compress.jl",
 		"interfacingwithitensors.jl",
-		"plots.jl",
 		"qft.jl",
+		"about_pluto.jl",
+		"plots.jl",
 	], default="welcome.jl")
 	nothing
 end
@@ -444,10 +442,9 @@ version = "17.4.0+2"
 
 # ╔═╡ Cell order:
 # ╟─89ca61fd-6bd0-483f-aad6-e3aa2e35046c
-# ╠═c453cd50-2e2d-4402-a017-37a32540dcb2
 # ╠═ca3996e3-7a32-41a9-9e3f-f5cb83f3fe5f
 # ╟─19b7809c-5a93-4963-b46a-360a332c476d
-# ╠═7b83cb86-f08a-41b0-b506-6cbe5393d3a3
+# ╟─7b83cb86-f08a-41b0-b506-6cbe5393d3a3
 # ╠═00c93734-a3e0-4c45-a60a-93fafba51dc5
 # ╟─ec419a4f-061c-4d67-a1b6-c123eb763132
 # ╟─07854cf9-da58-4c02-a54f-31a24d1f32b3
