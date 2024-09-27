@@ -33,17 +33,33 @@ $ julia
 julia> using Pkg; Pkg.activate("."); Pkg.instantiate()
 julia> Pkg.status()
 Status `~/tensor4all/T4APlutoExamples/Project.toml`
+  [3bbe58f8] ExampleJuggler v2.0.1
+  [9136182c] ITensors v0.6.18
   [98e50ef6] JuliaFormatter v1.0.60
+  [b964fa9f] LaTeXStrings v1.3.1
+  [91a5bcdd] Plots v1.40.8
   [c3e4b0f8] Pluto v0.19.46
   [2fc8631c] PlutoSliderServer v0.3.31
+  [7f904dfe] PlutoUI v0.7.60
+  [87f76fb3] Quantics v0.3.8
+  [634c7f73] QuanticsGrids v0.3.2
+  [b11687fd] QuanticsTCI v0.7.0
+  [9f0aa9f4] TCIITensorConversion v0.1.4
+  [b261b2ec] TensorCrossInterpolation v0.9.12
+  [d6f4376e] Markdown
 ```
 
 ## Launch Pluto Notebook
 
-Let's run our Pluto notebook `pluto_notebooks/quantics1d.jl` for instance:
+Let's run our Pluto notebook `pluto_notebooks/quantics1d.jl` for instance. Open your terminal. Then start Julia REPL:
 
 ```sh
-$ julia --project
+$ julia
+```
+
+Next, run `using Pkg; Pkg.activate("."); using Pluto; Pluto.run(notebook="pluto_notebooks/quantics1d.jl")` in your Julia REPL:
+
+```julia
                _
    _       _ _(_)_     |  Documentation: https://docs.julialang.org
   (_)     | (_) (_)    |
@@ -53,15 +69,21 @@ $ julia --project
  _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
 |__/                   |
 
-julia> using Pluto; Pluto.run(notebook="pluto_notebooks/quantics1d.jl")
+julia> using Pkg; Pkg.activate("."); using Pluto; Pluto.run(notebook="pluto_notebooks/quantics1d.jl")
 ```
 
 This will launch a Pluto notebook server immediately.
 
-You can also run Pluto notebooks on the web using the `download` function.
+### Tips 💡
 
-```julia-repl
-julia> using Pluto; Pluto.run(notebook=download("https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/quantics1d.jl"))
+You can also run Pluto notebooks on the web using the `download` function. Copy and paste the following into your Julia REPL:
+
+```julia
+using Pkg; Pkg.activate(temp=true); Pkg.add("Pluto")
+BASE_URL = "https://raw.githubusercontent.com/tensor4all/T4APlutoExamples/refs/heads/main/pluto_notebooks/"
+notebook = "quantics1d.jl"
+url = joinpath(BASE_URL, notebook)
+using Pluto; Pluto.run(notebook=download(url))
 ```
 
 ## How to learn more about Pluto.jl
