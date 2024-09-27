@@ -78,8 +78,11 @@ end
 
 # ╔═╡ bfb37a67-322e-4e2a-ad7c-dc8a628ae44f
 md"""
-Let's examine the behaviour of $f(x)$. This function involves structure on widely different scales: rapid, incommensurate oscillations and a slowly decaying envelope. We'll use [PythonPlot.jl](https://github.com/JuliaPy/PythonPlot.jl) visualisation library which uses Python library [matplotlib](https://matplotlib.org/) behind the scenes.
+Let's examine the behaviour of $f(x)$. This function involves structure on widely different scales: rapid, incommensurate oscillations and a slowly decaying envelope. We'll use [Plots.jl](https://docs.juliaplots.org/stable/) visualisation library. See our tutorial [Introduction to Plots.jl](https://tensor4all.org/T4APlutoExamples/pluto_notebooks/plots.html) to learn more.
+"""
 
+# ╔═╡ cfac7e4f-c8c6-4383-a8b0-af0b69ddebae
+md"""
 For small $x$ we have:
 """
 
@@ -1636,6 +1639,7 @@ version = "1.4.1+1"
 # ╟─e241cb1b-d6f4-4017-bd9c-91269a7d44cb
 # ╠═783ffb2d-8b23-41a0-919b-2e51e0d0c8bd
 # ╟─bfb37a67-322e-4e2a-ad7c-dc8a628ae44f
+# ╟─cfac7e4f-c8c6-4383-a8b0-af0b69ddebae
 # ╠═0667a441-4318-4ff8-961d-bee751b0f5b1
 # ╟─1db28e87-516c-468d-aee2-77a108691054
 # ╠═ac154938-3dfe-420f-a24a-43fb8b9a5060
