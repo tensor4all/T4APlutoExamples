@@ -46,7 +46,8 @@ jobs:
 
             - name: Edit .gitignore to allow to track html files
               run: |
-                rm .gitignore
+                sed -i '/\.html$/s/^/# /' .gitignore
+                cat .gitignore
             - name: Instantiate
               run: |
                 julia --project -e 'using Pkg; Pkg.instantiate()'
@@ -64,7 +65,7 @@ jobs:
                     Export_baked_state=false,
                     # more parameters can go here
                   )'
-            - name: List files
+            - name: List files in pluto_notebooks
               run: ls ./pluto_notebooks
             - name: Deploy to gh-pages
               uses: JamesIves/github-pages-deploy-action@releases/v4
@@ -72,5 +73,5 @@ jobs:
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   branch: gh-pages
-                  folder: ./
+                  folder: ./pluto_notebooks
                   single-commit: true
